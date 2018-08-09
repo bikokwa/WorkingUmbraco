@@ -1876,6 +1876,8 @@
     <Content Include="Umbraco\Xslt\Web.config" />
     <Content Include="Views\News.cshtml" />
     <Content Include="Views\NewsOverview.cshtml" />
+    <Content Include="Views\ContactFormula.cshtml" />
+    <Content Include="Views\ContactPage.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
