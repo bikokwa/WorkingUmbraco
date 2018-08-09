@@ -8,8 +8,8 @@ using  Umbraco.Web;
 using  Umbraco.ModelsBuilder;
 using  Umbraco.ModelsBuilder.Umbraco;
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "fc3483a30cda7f8")]
-[assembly:System.Reflection.AssemblyVersion("0.0.0.1")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "27747bbe96f02630")]
+[assembly:System.Reflection.AssemblyVersion("0.0.0.3")]
 
 
 // FILE: models.generated.cs
@@ -125,6 +125,41 @@ namespace Umbraco.Web.PublishedContentModels
 		public string PageImage
 		{
 			get { return this.GetPropertyValue<string>("pageImage"); }
+		}
+	}
+
+	/// <summary>News Overview</summary>
+	[PublishedContentModel("newsOverview")]
+	public partial class NewsOverview : Master
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "newsOverview";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public NewsOverview(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<NewsOverview, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// News Overview Body Text: A container for all news
+		///</summary>
+		[ImplementPropertyType("newsOverviewBodyText")]
+		public IHtmlString NewsOverviewBodyText
+		{
+			get { return this.GetPropertyValue<IHtmlString>("newsOverviewBodyText"); }
 		}
 	}
 

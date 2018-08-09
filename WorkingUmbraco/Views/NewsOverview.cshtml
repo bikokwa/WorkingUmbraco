@@ -1,4 +1,4 @@
-﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<ContentModels.Home>
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<ContentModels.NewsOverview>
 @using ContentModels = Umbraco.Web.PublishedContentModels;
 @{
 	Layout = "Master.cshtml";
@@ -6,8 +6,6 @@
 <div class="container-fluid">
     <div class="container">
         <h1>@CurrentPage.Name</h1>
-        @CurrentPage.bodyText
-        <img src="@CurrentPage.pageImage" alt="@CurrentPage.Name"/>
+        @CurrentPage.newsOverviewBodyText
     </div>
 </div>
-
