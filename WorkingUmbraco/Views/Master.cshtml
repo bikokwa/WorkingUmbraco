@@ -26,10 +26,15 @@
     <title>@CurrentPage.pageTitle | @CurrentPage.siteName</title>
   </head>
   <body>
-    <div class="container-fluid">
-        <div class="container">
-            @RenderBody()
-        </div>
-    </div>
+      <div class="container-fluid">
+          <div class="container">
+              @Html.Partial("Navigation")
+          </div>
+      </div>
+      <div class="container-fluid">
+          <div class="container">
+              @RenderBody()
+          </div>
+      </div>
   </body>
 </html>
