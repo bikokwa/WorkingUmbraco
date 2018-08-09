@@ -19,8 +19,8 @@ using Umbraco.ModelsBuilder;
 using Umbraco.ModelsBuilder.Umbraco;
 
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "27747bbe96f02630")]
-[assembly:System.Reflection.AssemblyVersion("0.0.0.3")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "c705ac475f860a0")]
+[assembly:System.Reflection.AssemblyVersion("0.0.0.1")]
 
 namespace Umbraco.Web.PublishedContentModels
 {
@@ -144,6 +144,41 @@ namespace Umbraco.Web.PublishedContentModels
 		public IHtmlString NewsOverviewBodyText
 		{
 			get { return this.GetPropertyValue<IHtmlString>("newsOverviewBodyText"); }
+		}
+	}
+
+	/// <summary>News</summary>
+	[PublishedContentModel("news")]
+	public partial class News : Master
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "news";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public News(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<News, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// News Text: The text in a news section
+		///</summary>
+		[ImplementPropertyType("newsText")]
+		public IHtmlString NewsText
+		{
+			get { return this.GetPropertyValue<IHtmlString>("newsText"); }
 		}
 	}
 
