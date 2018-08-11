@@ -14,5 +14,16 @@ namespace WorkingUmbraco.Controllers
         {
             return PartialView("ContactForm", new ContactModel());
         }
+
+        public ActionResult HandleFormPost(ContactModel model)
+        {
+            var newComment = Services.ContentService.CreateContent(model.Name+" - "+ DateTime.Now.ToString(),CurrentPage.Id, "ContactFormula");
+
+            newComment.SetValue("emailFrom",model.Email);
+            newComment.SetValue("contactName", model.Name);
+            newComment.SetValue("contactMessage", model.Message);
+            Services.ContentService.SaveAndPublishWithStatus(newComment);
+            return RedirectToCurrentUmbracoPage();
+        }
     }
 }
