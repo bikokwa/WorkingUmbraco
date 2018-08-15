@@ -1949,6 +1949,8 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\MacroPartials\Gallery.cshtml" />
+    <Content Include="Views\MacroPartials\Search Results.cshtml" />
+    <Content Include="Views\SearchResults.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

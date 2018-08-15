@@ -10,18 +10,29 @@
 
 @{ var selection = Model.Content.Site().Children.Where(x => x.IsVisible()).ToArray(); }
 <ul>
-    @{ 
+    @{
         var HomePage = CurrentPage.AncestorsOrSelf(1).FirstOrDefault();
+        var SearchResultsPage = Model.Content.AncestorOrSelf(1).Children().Where(x => x.DocumentTypeAlias == "searchResults").FirstOrDefault();
     }
     <li><a href="@HomePage.Url">@HomePage.Name</a></li>
     @foreach (var item in selection)
     {
-        
-        
+
+
         <li class="@(item.IsAncestorOrSelf(Model.Content) ? "current" : null)">
             <a href="@item.Url">@item.Name</a>
         </li>
-        
-        
+
+
     }
 </ul>
+
+@*add a search form*@
+<div class="col-lg-3">
+    <form action="@SearchResultsPage.UrlAbsolute()" method="post" target="_blank">
+        <input type="search" class="form-control" placeholder="Search" name="query" />
+        <span class="input-group-btn">
+            <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+        </span>
+    </form>
+</div>
