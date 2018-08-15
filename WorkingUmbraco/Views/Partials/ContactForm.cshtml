@@ -5,10 +5,10 @@
 @using (Html.BeginUmbracoForm<ContactSurfaceController>("HandleFormPost"))
 {
     <label for="emailFrom">Email</label>
-    @Html.TextBoxFor(x => x.Email, new { @class = "emailFrom", @placeholder = "Email" })
+    @Html.TextBoxFor(x => x.Email, new { @class = "emailFrom", @placeholder = "Email" })<br />
     <label for="nameFrom">Name</label>
-    @Html.TextBoxFor(x => x.Name, new { @class = "nameFrom", @placeholder = "Name" })
+    @Html.TextBoxFor(x => x.Name, new { @class = "nameFrom", @placeholder = "Name" })<br />
     <label for="messageFrom">Message</label>
-    @Html.TextAreaFor(x => x.Message, new { @class = "messageFrom", @placeholder = "Message" })
+    @Html.TextAreaFor(x => x.Message, new { @class = "messageFrom", @placeholder = "Message" })<br />
     <input type="submit" value="Submit" />
 }

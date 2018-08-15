@@ -19,8 +19,8 @@ using Umbraco.ModelsBuilder;
 using Umbraco.ModelsBuilder.Umbraco;
 
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "6f69c865e484c24c")]
-[assembly:System.Reflection.AssemblyVersion("0.0.0.2")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "6936363c438ab296")]
+[assembly:System.Reflection.AssemblyVersion("0.0.0.4")]
 
 namespace Umbraco.Web.PublishedContentModels
 {
@@ -249,6 +249,15 @@ namespace Umbraco.Web.PublishedContentModels
 		public string ContactName
 		{
 			get { return this.GetPropertyValue<string>("contactName"); }
+		}
+
+		///<summary>
+		/// Dropdown Titles: A dropdown for person title
+		///</summary>
+		[ImplementPropertyType("dropdownTitles")]
+		public object DropdownTitles
+		{
+			get { return this.GetPropertyValue("dropdownTitles"); }
 		}
 
 		///<summary>

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace WorkingUmbraco.Models
 {
@@ -18,5 +19,11 @@ namespace WorkingUmbraco.Models
 
         //Message
         public string Message { get; set; }
+
+        //list of items
+        public List<SelectListItem> ListOfTitles { get; set; }
+
+        //selected title
+        public string SelectedTitle { get; set; }
     }
 }
